@@ -30,6 +30,10 @@ class Cube(MarvinToolsClass):
 
     self._bitmasks = None
 
+    MarvinToolsClass.__init__(self, input=input, filename=filename, 
+                              #mangaid=mangaid, plateifu=plateifu, mode=mode, release=release, drpall=drpall, download=download,
+                             data=data)
+
 
 
 
