@@ -10,9 +10,10 @@ from .mixins import GetApertureMixIn, NSAMixIn
 
 class Cube(MarvinToolsClass):
   
-  def __init__(self, input=None, filename=None, mangaid=None, plateifu=None,
-               mode=None, data=None, release=None, 
-               drpall=None, download=None, nsa_source='auto')
+  def __init__(self, input=None, filename=None, 
+               #mangaid=None, plateifu=None, mode=None, #release=None, drpall=None, download=None, nsa_source='auto',
+               #wont be based on manga, user will have the file downloaded. drpall is used for finding spectra from manga database? 
+               data=None)
 
     self.header = None
     self.wcs = None
@@ -28,4 +29,8 @@ class Cube(MarvinToolsClass):
     self._dispersion_prepixel = None
 
     self._bitmasks = None
+
+
+
+
 
