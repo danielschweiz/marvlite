@@ -98,15 +98,15 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
         return super(Cube, self)._getFullPath('mangacube', ifu=ifu,
                                               drpver=self._drpver, plate=plate, wave='LOG')
 
-    def download(self):
+    #def download(self):
         """Downloads the cube using sdss_access - Rsync,"""
 
-        if not self.plateifu:
-            return None
+        #if not self.plateifu:
+            #return None
 
-        plate, ifu = self.plateifu.split('-')
+        #plate, ifu = self.plateifu.split('-')
 
-        return super(Cube, self).download('mangacube', ifu=ifu,
+        #return super(Cube, self).download('mangacube', ifu=ifu,
                                           drpver=self._drpver, plate=plate, wave='LOG')
 
     def __repr__(self):
@@ -187,7 +187,7 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
 
         self._do_file_checks(self)
 
-    def _load_cube_from_db(self, data=None):
+    '''def _load_cube_from_db(self, data=None):
         """Initialises a cube from the DB."""
 
         mdb = marvin.marvindb
@@ -247,7 +247,7 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
         if self.plateifu != data['plateifu']:
             raise MarvinError('remote cube has a different plateifu!')
 
-        return
+        return'''
 
     def _get_datacube(self, name):
         """Returns a `.DataCube`."""
