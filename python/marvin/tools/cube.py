@@ -157,14 +157,14 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
             obj._drpall = marvin.config._getDrpAllPath(file_drpver)
             obj.mangaid = obj.header['MANGAID']
 
-            nsa_source = 'drpall' if obj.nsa_source == 'auto' else obj.nsa_source
+            nsa_source = 'drpall' if obj.nsa_source == 'auto' else obj.nsa_source                #getting rid of nsa?
 
             obj._nsa = None
             obj._nsa = get_nsa_data(obj.mangaid, mode='auto', source=nsa_source,
                                     drpver=obj._drpver, drpall=obj._drpall)
 
         obj._drpver, obj._dapver = marvin.config.lookUpVersions(release=obj._release)
-'''
+
     def _load_cube_from_file(self, data=None):
         """Initialises a cube from a file."""
 
