@@ -17,7 +17,7 @@ import marvin
 #from marvin.utils.general import FuzzyDict, get_nsa_data, gunzip, get_dapall_table
 
 from .core import MarvinToolsClass
-#from .mixins import GetApertureMixIn, NSAMixIn
+from .mixins import GetApertureMixIn, NSAMixIn
 
 
 class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
