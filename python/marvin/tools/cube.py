@@ -120,7 +120,7 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
 
        # return self.getSpaxel(x=xy[1], y=xy[0], xyorig='lower')
 
-    @staticmethod
+    @staticmethod                                                                    #what does this mean??
     def _init_attributes(obj):
         """Initialises several attributes."""
 
@@ -128,11 +128,11 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
         obj.dec = float(obj.header['OBJDEC'])
 '''
         obj.mangaid = obj.header['MANGAID']
-'''
+
         obj._isbright = 'APOGEE' in obj.header['SRVYMODE']
-
+                                                                                #needed?
         obj.dir3d = 'mastar' if obj._isbright else 'stack'
-
+'''
     @staticmethod
     def _do_file_checks(obj):
         """Performs a series of check when we load from a file."""
@@ -186,8 +186,8 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
         self._shape = (self.header['NAXIS2'], self.header['NAXIS1'])
 
         self._do_file_checks(self)
-
-    '''def _load_cube_from_db(self, data=None):
+'''
+    def _load_cube_from_db(self, data=None):
         """Initialises a cube from the DB."""
 
         mdb = marvin.marvindb
