@@ -115,10 +115,10 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
         return ('<Marvin Cube (plateifu={0}, mode={1}, data_origin={2})>'
                 .format(repr(self.plateifu), repr(self.mode), repr(self.data_origin)))
 
-    def __getitem__(self, xy):
+   # def __getitem__(self, xy):
         """Returns the spaxel for ``(x, y)``"""
 
-        return self.getSpaxel(x=xy[1], y=xy[0], xyorig='lower')
+       # return self.getSpaxel(x=xy[1], y=xy[0], xyorig='lower')
 
     @staticmethod
     def _init_attributes(obj):
@@ -126,9 +126,9 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
 
         obj.ra = float(obj.header['OBJRA'])
         obj.dec = float(obj.header['OBJDEC'])
-
+'''
         obj.mangaid = obj.header['MANGAID']
-
+'''
         obj._isbright = 'APOGEE' in obj.header['SRVYMODE']
 
         obj.dir3d = 'mastar' if obj._isbright else 'stack'
@@ -164,7 +164,7 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
                                     drpver=obj._drpver, drpall=obj._drpall)
 
         obj._drpver, obj._dapver = marvin.config.lookUpVersions(release=obj._release)
-
+'''
     def _load_cube_from_file(self, data=None):
         """Initialises a cube from a file."""
 
@@ -379,7 +379,7 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
 
         if self.data_origin == 'file':
             ext_data = self.data[model.fits_extension(ext)].data
-
+'''
         elif self.data_origin == 'db':
             # If the table is "spaxel", this must be a 3D cube. If it is "cube",
             # uses self.data, which is basically the DataModelClass.Cube instance.
@@ -407,11 +407,12 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
             data = response.getData()
             cube_ext_data = data['extension_data']
             ext_data = np.array(cube_ext_data) if cube_ext_data is not None else None
-
+'''
         self._extension_data[ext_name] = ext_data
 
         return ext_data
 
+'''
     def _get_spaxel_quantities(self, x, y, spaxel=None):
         """Returns a dictionary of spaxel quantities."""
 
@@ -491,7 +492,8 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
                                                     wavelength=self._wavelength,
                                                     unit=dm.unit,
                                                     pixmask_flag=dm.pixmask_flag)
-
+'''
+'''
         if self.data_origin == 'api':
 
             params = {'release': self._release}
@@ -504,8 +506,9 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
                 raise MarvinError('found a problem when checking if remote cube '
                                   'exists: {0}'.format(str(ee)))
 
-            data = response.getData()
-
+           data = response.getData()
+'''
+'''
             for dm in self.datamodel.datacubes + self.datamodel.spectra:
 
                 if data[dm.name]['value'] is None:
@@ -516,16 +519,16 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
                     continue
 
                 cube_quantities[dm.name] = Spectrum(data[dm.name]['value'],
-                                                    ivar=data[dm.name]['ivar'],
-                                                    mask=data[dm.name]['mask'],
-                                                    wavelength=data['wavelength'],
-                                                    unit=dm.unit,
-                                                    pixmask_flag=dm.pixmask_flag)
+                                                   # ivar=data[dm.name]['ivar'],
+                                                  #  mask=data[dm.name]['mask'],
+                                                  #  wavelength=data['wavelength'],
+                                                   # unit=dm.unit,
+                                                  #  pixmask_flag=dm.pixmask_flag)
 
         return cube_quantities
-
-    def getSpaxel(self, x=None, y=None, ra=None, dec=None,
-                  maps=False, modelcube=False, **kwargs):
+'''
+   # def getSpaxel(self, x=None, y=None, ra=None, dec=None,
+   #               maps=False, modelcube=False, **kwargs):
         """Returns the :class:`~marvin.tools.spaxel.Spaxel` matching certain coordinates.
 
         The coordinates of the spaxel to return can be input as ``x, y`` pixels
@@ -566,25 +569,25 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
 
         """
 
-        for old_param in ['properties', 'model', 'models']:
-            if old_param in kwargs:
-                raise marvin.core.exceptions.MarvinDeprecationError(
-                    'the {0} parameter has been deprecated. '
-                    'Use maps or modelcube.'.format(old_param))
+       # for old_param in ['properties', 'model', 'models']:
+          #  if old_param in kwargs:
+              #  raise marvin.core.exceptions.MarvinDeprecationError(
+                  #  'the {0} parameter has been deprecated. '
+                  #  'Use maps or modelcube.'.format(old_param))
 
-        return marvin.utils.general.general.getSpaxel(x=x, y=y, ra=ra, dec=dec,
-                                                      cube=self,
-                                                      maps=maps,
-                                                      modelcube=modelcube,
-                                                      **kwargs)
+       # return marvin.utils.general.general.getSpaxel(x=x, y=y, ra=ra, dec=dec,
+                                                      #cube=self,
+                                                     # maps=maps,
+                                                      #modelcube=modelcube,
+                                                      #**kwargs)
 
-    def getRSS(self):
+   # def getRSS(self):
         """Returns the `~marvin.tools.rss.RSS` associated with this Cube."""
 
-        return marvin.tools.RSS(plateifu=self.plateifu, mode=self.mode,
-                                release=self.release)
+       # return marvin.tools.RSS(plateifu=self.plateifu, mode=self.mode,
+                     #           release=self.release)
 
-    def getMaps(self, **kwargs):
+   # def getMaps(self, **kwargs):
         """Retrieves the DAP :class:`~marvin.tools.maps.Maps` for this cube.
 
         If called without additional ``kwargs``, :func:`getMaps` will
@@ -594,33 +597,33 @@ class Cube(MarvinToolsClass, NSAMixIn, GetApertureMixIn):
 
         """
 
-        if len(kwargs.keys()) == 0 or 'filename' not in kwargs:
-            kwargs.update({'plateifu': self.plateifu, 'release': self._release})
+        #if len(kwargs.keys()) == 0 or 'filename' not in kwargs:
+            #kwargs.update({'plateifu': self.plateifu, 'release': self._release})
 
-        maps = marvin.tools.maps.Maps(**kwargs)
+       # maps = marvin.tools.maps.Maps(**kwargs)
 
-        return maps
+       # return maps
 
-    def get_available_bintypes(self):
+    #def get_available_bintypes(self):
         ''' List the available DAP binning schemes for this object
 
             For ``data_origin`` of file or API, uses the local DAPall summary
             file to determine the available bintypes for a given plateifu.
         '''
 
-        if self.data_origin == 'file' or self.data_origin == 'api':
-            daptable = get_dapall_table(drpver=self._drpver, dapver=self._dapver)
-            locs = (daptable['PLATEIFU'] == self.plateifu) & (daptable['DAPDONE'] == True)
-            return set(daptable[locs]['BINKEY'].tolist())
-        elif self.data_origin == 'db':
-            session = marvin.marvindb.session
-            datadb = marvin.marvindb.datadb
-            dapdb = marvin.marvindb.dapdb
+       # if self.data_origin == 'file' or self.data_origin == 'api':
+           # daptable = get_dapall_table(drpver=self._drpver, dapver=self._dapver)
+           # locs = (daptable['PLATEIFU'] == self.plateifu) & (daptable['DAPDONE'] == True)
+           # return set(daptable[locs]['BINKEY'].tolist())
+       # elif self.data_origin == 'db':
+            #session = marvin.marvindb.session
+           # datadb = marvin.marvindb.datadb
+           # dapdb = marvin.marvindb.dapdb
 
-            query = session.query(dapdb.BinType.name).join(
-                    dapdb.Structure, dapdb.File, datadb.PipelineInfo,
-                    datadb.PipelineVersion).filter(
-                        datadb.PipelineVersion.version == self._dapver,
-                        dapdb.File.filename.ilike('%{0}%MAPS%'.format(self.plateifu)))
-            bintypes = [i[0] for i in query]
-            return set(bintypes)
+           # query = session.query(dapdb.BinType.name).join(
+                  #  dapdb.Structure, dapdb.File, datadb.PipelineInfo,
+                   # datadb.PipelineVersion).filter(
+                       # datadb.PipelineVersion.version == self._dapver,
+                       # dapdb.File.filename.ilike('%{0}%MAPS%'.format(self.plateifu)))
+           # bintypes = [i[0] for i in query]
+           # return set(bintypes)
