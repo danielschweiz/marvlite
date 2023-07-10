@@ -12,7 +12,7 @@ import marvin
 #import marvin.tools.spaxel
 #import marvin.utils.general.general
 #from marvin.core.exceptions import MarvinError, MarvinUserWarning
-#from marvin.tools.quantities import DataCube, Spectrum
+from marvin.tools.quantities import DataCube, Spectrum
 #from marvin.utils.datamodel.drp import datamodel
 #from marvin.utils.general import FuzzyDict, get_nsa_data, gunzip, get_dapall_table
 
