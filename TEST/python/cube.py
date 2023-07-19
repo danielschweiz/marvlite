@@ -10,8 +10,7 @@ class DataCube:
          '''Gets filename from a given file path. Checks to confirm whether or not the file is a .fits.gz file.'''      
          filename = os.path.basename(fullpath)
          if filename.endswith('.fits.gz'):
-             pass
+             return filename
          else:
              raise Exception('This file is not a .fits.gz file. Please input the proper file path.')
-         return filename
     
