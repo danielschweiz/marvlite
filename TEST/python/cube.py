@@ -12,5 +12,5 @@ class DataCube:
          if filename.endswith('.fits.gz'):
              return filename
          else:
-             raise Exception('This file is not a .fits.gz file. Please input the proper file path.')
+             return 'This file is not a datacube (.fits.gz) file.'
     
