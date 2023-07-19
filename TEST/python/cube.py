@@ -1,4 +1,5 @@
 import os
+import fits
 
 class DataCube:
     '''Class that can pull all necessary functional information from an inputted datacube.'''
@@ -13,4 +14,6 @@ class DataCube:
              return filename
          else:
              return 'This file is not a datacube (.fits.gz) file.'
-    
+         
+    def open_gz(self, filename):
+        '''Opens .fits.gz files''' 
