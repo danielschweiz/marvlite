@@ -7,7 +7,7 @@ class DataCube:
     def __init__ (self, file_name):   
         file_name = None
 
-    def get_filename(self, fullpath):
+    def filecheck(self, fullpath):
          '''Gets filename from a given file path. Checks to confirm whether or not the file is a .fits.gz file.'''      
          filename = os.path.basename(fullpath)
          if filename.endswith('.fits.gz'):
