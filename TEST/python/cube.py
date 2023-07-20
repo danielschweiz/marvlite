@@ -15,7 +15,8 @@ class DataCube:
          else:
              return 'This file is not a datacube (.fits.gz) file.'
          
-    def open_gz(self, filename):
-        '''Opens .fits.gz files'''
-        with fits.open(filename) as hdul:
-            hdul.info()
+    def open_gz(self, fullpath):
+        '''Opens .fits.gz files and spits back the full header.'''
+        path = input('file path:')
+        with fits.open(path, 'w') as f:
+            f.info()
