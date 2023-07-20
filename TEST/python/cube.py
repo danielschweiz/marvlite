@@ -17,3 +17,5 @@ class DataCube:
          
     def open_gz(self, filename):
         '''Opens .fits.gz files'''
+        with fits.open(filename) as hdul:
+            hdul.info()
