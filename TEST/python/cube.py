@@ -26,5 +26,5 @@ class DataCube:
         path = input('file path:')
         hdul = fits.open(path)
         data = hdul[1].data
-        posdata = data[y - 1, x - 1]
+        posdata = data[y - 1, x - 1].T
         print(posdata)
