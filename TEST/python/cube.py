@@ -1,5 +1,5 @@
 import os
-import fits
+from astropy.io import fits
 
 class DataCube:
     '''Class that can pull all necessary functional information from an inputted datacube.'''
