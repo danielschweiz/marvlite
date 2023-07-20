@@ -20,3 +20,11 @@ class DataCube:
         path = input('file path:')
         with fits.open(path) as f:
             f.info()
+
+    def pixflux(self, path, x, y):
+        '''Inputs x and y coordinates and gets exact flux for that pixel.'''
+        path = input('file path:')
+        hdul = fits.open(path)
+        data = hdul[1].data
+        posdata = data[y - 1, x - 1]
+        print(f"the flux at x = {x} and y = {y} is {posdata:.0f}")
