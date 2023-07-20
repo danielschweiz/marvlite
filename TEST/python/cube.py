@@ -16,4 +16,4 @@ class DataCube:
              return 'This file is not a datacube (.fits.gz) file.'
          
     def open_gz(self, filename):
-        '''Opens .fits.gz files''' 
+        '''Opens .fits.gz files'''
