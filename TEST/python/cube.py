@@ -18,5 +18,5 @@ class DataCube:
     def open_gz(self):
         '''Opens .fits.gz files and spits back the full header.'''
         path = input('file path:')
-        with fits.open(path, 'w') as f:
+        with fits.open(path) as f:
             f.info()
