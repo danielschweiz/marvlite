@@ -1,4 +1,4 @@
 # marvlite
 lite version of sdss marvin
 
-https://prod.liveshare.vsengsaas.visualstudio.com/join?F5B4DEE18A8DF9F968328A4892B89ABAEFFD
+https://prod.liveshare.vsengsaas.visualstudio.com/join?2566904F9F7D68E1BA0C7CADF74B323C1128
