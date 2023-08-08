@@ -1,0 +1,16 @@
+# hi!
+
+import astropy.io
+from astropy.io import fits
+import numpy as np
+import matplotlib.pyplot as plt
+hdul = fits.open('manga-8485-1901-LOGCUBE.fits.gz')
+flux = hdul[1].data
+spectrum = flux[:, 17, 17
+]
+plt.plot(spectrum)
+plt.plot(spectrum, ylim = (0, 6))
+spectrum2 = flux[:, 20, 25
+]
+plt.plot(spectrum2)
+history
