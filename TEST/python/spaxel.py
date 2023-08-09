@@ -29,5 +29,9 @@ class Spaxel(filename):
 
      def specvis(self, x, y)
          '''Plots'''
+            hdul = fits.open('manga-8485-1901-LOGCUBE.fits.gz')
+            flux = hdul[1].data
+            spectrum = flux[:, x, y]
+            plt.plot(spectrum)
     
     self.spectrum= self.cube(self.x,self.y)
