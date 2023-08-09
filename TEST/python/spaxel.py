@@ -33,7 +33,11 @@ class Spaxel(filename):
             hdul = fits.open(path)
             flux = hdul[1].data
             spectrum = flux[:, x, y]
-            
+            units=hdul[1].header['BUNIT']
             plt.plot(spectrum)
+            plt.xlabel('Wavelength (Å)')
+            plt.ylabel(f'Flux ({units})')
+            plt.show()
+         
     
-    self.spectrum= self.cube(self.x,self.y)
+
