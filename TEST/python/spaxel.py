@@ -27,17 +27,17 @@ class Spaxel(filename):
             spectrum = data[:, x, y]
             print(spectrum)
 
-     def specvis(self, x, y):
+    def specvis(self, x, y):
          '''Plots'''
-            path = input('file path:')
-            hdul = fits.open(path)
-            flux = hdul[1].data
-            spectrum = flux[:, x, y]
-            units=hdul[1].header['BUNIT']
-            plt.plot(spectrum)
-            plt.xlabel('Wavelength (Å)')
-            plt.ylabel(f'Flux ({units})')
-            plt.show()
+        path = input('file path:')
+        hdul = fits.open(path)
+        flux = hdul[1].data
+        spectrum = flux[:, x, y]
+        units=hdul[1].header['BUNIT']
+        plt.plot(spectrum)
+        plt.xlabel('Wavelength (Å)')
+        plt.ylabel(f'Flux ({units})')
+        plt.show()
          
     
 
