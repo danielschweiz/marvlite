@@ -1,5 +1,6 @@
  # spaxel stuff
 from cube import DataCube as dc
+from astropy.io import fits
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -28,8 +29,7 @@ class Spaxel(filename):
             print(spectrum)
 
     def specvis(self, x, y):
-         '''Plots'''
-    path = input('file path:')
+        path = input('file path:')
         hdul = fits.open(path)
         flux = hdul[1].data
         spectrum = flux[:, x, y]
