@@ -11,9 +11,9 @@ class Spaxel(filename):
         self.x=int(x)
         self.y=int(y)
 
-    def flux(self):
+    def flux(self, x, y):
         '''Gets flux cube, and, if specified, gets spectrum.'''
-        if x, y == None
+        if x == y == None or x == y == []:
             path = input('file path:')
             hdul = fits.open(path)
             data = hdul[1].data
@@ -26,5 +26,8 @@ class Spaxel(filename):
             y = int(y)
             spectrum = data[:, x, y]
             print(spectrum)
+
+     def specvis(self, x, y)
+         '''Plots'''
     
     self.spectrum= self.cube(self.x,self.y)
