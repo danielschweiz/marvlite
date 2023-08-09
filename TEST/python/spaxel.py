@@ -4,7 +4,7 @@ from astropy.io import fits
 import numpy as np
 import matplotlib.pyplot as plt
 
-class Spaxel(filename):
+class Spaxel:
 
     def __init__(self, x, y, cube=True, maps=True):
         self._cube = cube
