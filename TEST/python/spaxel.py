@@ -27,7 +27,7 @@ class Spaxel(filename):
             spectrum = data[:, x, y]
             print(spectrum)
 
-     def specvis(self, x, y)
+     def specvis(self, x, y):
          '''Plots'''
             path = input('file path:')
             hdul = fits.open(path)
