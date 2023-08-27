@@ -34,7 +34,7 @@ class Spaxel:
         flux = hdul[1].data
         spectrum = flux[:, x, y]
         units=hdul[1].header['BUNIT']
-        plt.plot(spectrum)
+        plt.plot(spectrum, ylim = (0, 6))
         plt.xlabel('Wavelength (Å)')
         plt.ylabel(f'Flux ({units})')
         plt.show()
